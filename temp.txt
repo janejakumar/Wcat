@@ -1,0 +1,99 @@
+for(let file of filenames) {
+    let fileData = fs.readFileSync(file,"utf-8");
+    for(let flag of flags) {
+        if(flag == "-rs") {
+            fileData = removeAll(fileData," ");
+        }
+        if(flag == "-rn") {
+            fileData = removeAll(fileData, "\r\n")
+        }
+        if(flag == "-rsc") {
+            for(let secondaryArgument of secondaryArguments) {
+                fileData = removeAll(fileData,secondaryArgument);
+            }
+        }
+    }
+    console.log(fileData);
+}
+
+function removeAll(string, removalData) {
+    return string.split(removalData).join("");
+}
+
+
+for(let file of filename){
+    let fileData= fs.readFileSync(file, "utf-8")
+    for(let flag of flags){
+        if(flag=="-rs"){
+            fileData=fileData.split(" ").join("");
+        }
+        if(flag=="-rl"){
+            fileData=fileData.split("\r\n").join("");
+        }
+        if(flag=="-rsc"){
+            for(let i of secondaryargument){
+                fileData=fileData.split(i).join("");
+            }
+        }
+        if(flag=="-s"){
+            addSequence(fileData);
+        }
+
+
+    }
+    console.log(fileData)
+}
+
+function addSequence(fd){
+    for(let i in fd){
+        if(i=="\r\n"){
+            fd=fd+i;
+        }
+    }
+}
+
+
+/ if(flags.length==0&& filename.length!=0){
+//     for(let file of filename){
+//         console.log(fs.readFileSync(file,"utf-8"));
+//     }
+// } 
+//else{
+//     for(let flag of flags){
+//         if(flag=="-rs"){
+//             for(let file of )
+//         }
+//     }
+// }
+
+
+// for(let file of filename){
+//     let fileData= fs.readFileSync(file, "utf-8")
+//     for(let flag of flags){
+//         if(flag=="-rs"){
+//             fileData=fileData.split(" ").join("");
+//         }
+//         if(flag=="-rl"){
+//             fileData=fileData.split("\r\n").join("");
+//         }
+//         if(flag=="-rsc"){
+//             for(let i of secondaryargument){
+//                 fileData=fileData.split(i).join("");
+//             }
+//         }
+//         if(flag=="-s"){
+//             addSequence(fileData);
+//         }
+
+
+//     }
+//     console.log(fileData)
+// }
+
+// function addSequence(fd){
+//     for(let i in fd){
+//         if(i=="\r\n"){
+//             fd=fd+i;
+//         }
+//     }
+// }
